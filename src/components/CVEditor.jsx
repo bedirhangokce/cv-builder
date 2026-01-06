@@ -160,25 +160,25 @@ export default function CVEditor({ onTemplateChange }) {
                 color: 'text-emerald-600'
               }
             ].map(({ key, label, placeholder, icon, color }) => (
-              <div key={key} className={`flex items-center gap-3 p-3 rounded-lg border transition-all duration-200 ${cv.links[key].enabled ? 'bg-white border-indigo-200 shadow-sm' : 'bg-gray-50 border-gray-200'}`}>
+              <div key={key} className={`flex items-center gap-3 p-3 rounded-lg border transition-all duration-200 ${cv.links?.[key]?.enabled ? 'bg-white border-indigo-200 shadow-sm' : 'bg-gray-50 border-gray-200'}`}>
                 <label className="flex items-center cursor-pointer">
                   <input
                     type="checkbox"
-                    checked={cv.links[key].enabled}
-                    onChange={e => updateField('links', { ...cv.links, [key]: { ...cv.links[key], enabled: e.target.checked } })}
+                    checked={cv.links?.[key]?.enabled || false}
+                    onChange={e => updateField('links', { ...cv.links, [key]: { ...cv.links?.[key], enabled: e.target.checked } })}
                     className="sr-only peer"
                   />
                   <div className="w-9 h-5 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-indigo-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600 relative"></div>
                 </label>
-                <span className={`${color} ${!cv.links[key].enabled && 'opacity-40'}`}>{icon}</span>
-                <span className={`w-20 font-medium text-sm ${!cv.links[key].enabled && 'text-gray-400'}`}>{label}</span>
+                <span className={`${color} ${!cv.links?.[key]?.enabled && 'opacity-40'}`}>{icon}</span>
+                <span className={`w-20 font-medium text-sm ${!cv.links?.[key]?.enabled && 'text-gray-400'}`}>{label}</span>
                 <input
                   type="url"
-                  value={cv.links[key].url}
-                  onChange={e => updateField('links', { ...cv.links, [key]: { ...cv.links[key], url: e.target.value } })}
+                  value={cv.links?.[key]?.url || ''}
+                  onChange={e => updateField('links', { ...cv.links, [key]: { ...cv.links?.[key], url: e.target.value } })}
                   placeholder={placeholder}
-                  className={`flex-1 px-3 py-1.5 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm transition-all ${cv.links[key].enabled ? 'border-gray-300 bg-white' : 'border-gray-200 bg-gray-100 text-gray-400'}`}
-                  disabled={!cv.links[key].enabled}
+                  className={`flex-1 px-3 py-1.5 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm transition-all ${cv.links?.[key]?.enabled ? 'border-gray-300 bg-white' : 'border-gray-200 bg-gray-100 text-gray-400'}`}
+                  disabled={!cv.links?.[key]?.enabled}
                 />
               </div>
             ))}
