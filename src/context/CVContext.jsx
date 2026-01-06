@@ -18,7 +18,13 @@ export const CVProvider = ({ children }) => {
     summary: '',
     education: [],
     experience: [],
-    skills: []
+    skills: [],
+    links: {
+      linkedin: { enabled: false, url: '' },
+      github: { enabled: false, url: '' },
+      instagram: { enabled: false, url: '' },
+      website: { enabled: false, url: '' }
+    },
   })
 
   // Load from localStorage on mount
@@ -57,7 +63,13 @@ export const CVProvider = ({ children }) => {
       summary: '',
       education: [],
       experience: [],
-      skills: []
+      skills: [],
+      links: {
+        linkedin: { enabled: false, url: '' },
+        github: { enabled: false, url: '' },
+        instagram: { enabled: false, url: '' },
+        website: { enabled: false, url: '' }
+      },
     })
   }
 

@@ -43,7 +43,13 @@ export default function DraftManager() {
         { id: 3, name: 'Node.js', level: 4 },
         { id: 4, name: 'Python', level: 3 },
         { id: 5, name: 'AWS', level: 4 }
-      ]
+      ],
+      links: {
+        linkedin: { enabled: false, url: '' },
+        github: { enabled: false, url: '' },
+        instagram: { enabled: false, url: '' },
+        website: { enabled: false, url: '' }
+      }
     },
     {
       name: 'Marketing Manager',
@@ -84,7 +90,13 @@ export default function DraftManager() {
         { id: 3, name: 'Content Strategy', level: 4 },
         { id: 4, name: 'Google Analytics', level: 5 },
         { id: 5, name: 'Adobe Creative Suite', level: 3 }
-      ]
+      ],
+      links: {
+        linkedin: { enabled: false, url: '' },
+        github: { enabled: false, url: '' },
+        instagram: { enabled: false, url: '' },
+        website: { enabled: false, url: '' }
+      }
     },
     {
       name: 'Data Analyst',
@@ -125,7 +137,13 @@ export default function DraftManager() {
         { id: 3, name: 'Tableau', level: 5 },
         { id: 4, name: 'R', level: 4 },
         { id: 5, name: 'Excel', level: 5 }
-      ]
+      ],
+      links: {
+        linkedin: { enabled: false, url: '' },
+        github: { enabled: false, url: '' },
+        instagram: { enabled: false, url: '' },
+        website: { enabled: false, url: '' }
+      }
     }
   ]
 
