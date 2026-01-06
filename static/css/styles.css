@@ -1,0 +1,28 @@
+body { background:#f6f8fa; }
+.preview { min-height: 600px; }
+
+/* Classic */
+.cv-classic { font-family: Georgia, serif; color: #111; }
+.cv-classic .name { font-size: 28px; font-weight: 700; }
+
+/* Modern */
+.cv-modern { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:#222 }
+.cv-modern .name { font-size: 30px; font-weight:700; color:#0d6efd }
+
+/* Minimal */
+.cv-minimal { font-family: Arial, sans-serif; color:#111 }
+.cv-minimal .name { font-size:24px; font-weight:700 }
+
+.section { margin-bottom: 12px }
+.section h4 { margin-bottom:6px; font-size:16px }
+
+/* Editable preview focus */
+.preview [contenteditable="true"]:focus{
+	outline: 2px dashed #0d6efd;
+	outline-offset: 2px;
+}
+.preview [contenteditable="true"]{ cursor:text }
+/* Custom field styles */
+.custom-field .cf-label{ font-weight:600 }
+.custom-field .cf-value{ margin-top:4px }
+.custom-field button{ margin-left:8px }
