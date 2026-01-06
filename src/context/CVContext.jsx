@@ -11,7 +11,7 @@ export const useCV = () => {
 }
 
 export const CVProvider = ({ children }) => {
-  const [cv, setCv] = useState({
+  const defaultCV = {
     name: '',
     title: '',
     contact: '',
@@ -25,16 +25,28 @@ export const CVProvider = ({ children }) => {
       instagram: { enabled: false, url: '' },
       website: { enabled: false, url: '' }
     },
-  })
+  }
+
+  const [cv, setCv] = useState(defaultCV)
 
   // Load from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem('cv-draft')
     if (saved) {
       try {
-        setCv(JSON.parse(saved))
+        const savedCV = JSON.parse(saved)
+        // Merge saved data with defaults to ensure all fields exist
+        setCv({
+          ...defaultCV,
+          ...savedCV,
+          links: {
+            ...defaultCV.links,
+            ...(savedCV.links || {})
+          }
+        })
       } catch (error) {
         console.error('Failed to load saved CV:', error)
+        setCv(defaultCV)
       }
     }
   }, [])
