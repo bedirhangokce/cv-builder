@@ -5,6 +5,7 @@ export const authConfig = {
         signIn: '/login',
         newUser: '/signup',
     },
+    secret: process.env.AUTH_SECRET,
     providers: [],
     callbacks: {
         authorized({ auth, request: { nextUrl } }) {
