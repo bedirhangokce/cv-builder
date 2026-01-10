@@ -1,0 +1,30 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build output
+dist
+.vite
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Django (not needed for this React app)
+*.pyc
+__pycache__
+.venv
+venv
+*.sqlite3
