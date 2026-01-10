@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { auth } from "@/auth"
-import { signOut } from "@/auth"
 import { Button } from "@/components/ui/button"
+import { logout } from "@/app/actions/auth"
 
 export default async function Navbar() {
     const session = await auth()
@@ -20,15 +20,12 @@ export default async function Navbar() {
                         {/* Search or other items */}
                     </div>
                     <nav className="flex items-center space-x-2">
-                        {session ? (
+                        {session?.user ? (
                             <>
                                 <Link href="/dashboard">
                                     <Button variant="ghost" size="sm">Dashboard</Button>
                                 </Link>
-                                <form action={async () => {
-                                    'use server';
-                                    await signOut()
-                                }}>
+                                <form action={logout}>
                                     <Button variant="outline" size="sm">Sign Out</Button>
                                 </form>
                             </>

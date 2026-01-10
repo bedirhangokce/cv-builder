@@ -1,6 +1,6 @@
 'use server'
 
-import { signIn } from '@/auth'
+import { signIn, signOut } from '@/auth'
 import { AuthError } from 'next-auth'
 import { db } from '@/lib/db'
 import bcrypt from 'bcryptjs'
@@ -64,4 +64,8 @@ export async function register(prevState: string | undefined, formData: FormData
         }
         throw error
     }
+}
+
+export async function logout() {
+    await signOut({ redirectTo: '/' })
 }
