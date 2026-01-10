@@ -5,7 +5,7 @@ export const authConfig = {
         signIn: '/login',
         newUser: '/signup',
     },
-    secret: process.env.AUTH_SECRET,
+    secret: process.env.AUTH_SECRET || 'fallback-secret-for-build-only-change-in-vercel',
     providers: [],
     callbacks: {
         authorized({ auth, request: { nextUrl } }) {

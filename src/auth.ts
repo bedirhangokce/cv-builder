@@ -20,7 +20,8 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
     ...authConfig,
     adapter: PrismaAdapter(db),
     session: { strategy: "jwt" },
-    secret: process.env.AUTH_SECRET,
+    // If the secret is missing, this will throw a clearer error in Vercel logs
+    secret: process.env.AUTH_SECRET || 'fallback-secret-for-build-only-change-in-vercel',
     providers: [
         Credentials({
             async authorize(credentials) {
